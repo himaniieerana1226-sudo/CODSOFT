@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account Created</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(
+135deg,
+#ffd1dc,
+#ffe4ec,
+#fff0f5
+);
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+font-size:28px;
+opacity:.7;
+animation:float 8s linear infinite;
+}
+
+.heart:nth-child(1){
+left:10%;
+top:90%;
+}
+
+.heart:nth-child(2){
+left:80%;
+top:85%;
+animation-delay:2s;
+}
+
+.heart:nth-child(3){
+left:50%;
+top:95%;
+animation-delay:4s;
+}
+
+.heart:nth-child(4){
+left:25%;
+top:80%;
+animation-delay:6s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:.7;
+}
+100%{
+transform:translateY(-700px);
+opacity:0;
+}
+}
+
+/* Glass Card */
+
+.card{
+width:400px;
+padding:40px;
+
+text-align:center;
+
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(18px);
+
+border-radius:35px;
+
+border:1px solid rgba(255,255,255,.5);
+
+box-shadow:
+0 10px 40px rgba(255,105,180,.25);
+}
+
+/* Success Circle */
+
+.success{
+width:120px;
+height:120px;
+
+margin:auto;
+margin-bottom:20px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:60px;
+
+background:
+linear-gradient(
+135deg,
+#ff9fc7,
+#ff6fa5
+);
+
+color:white;
+
+animation:pop 1s ease;
+}
+
+@keyframes pop{
+0%{
+transform:scale(0);
+}
+70%{
+transform:scale(1.15);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* Text */
+
+h1{
+color:#ff4f8b;
+font-size:32px;
+margin-bottom:10px;
+}
+
+p{
+color:#666;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+/* Button */
+
+.btn{
+width:100%;
+padding:15px;
+
+border:none;
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#ff77aa,
+#ff4f8b
+);
+
+color:white;
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* Sparkles */
+
+.sparkle{
+font-size:22px;
+margin-top:15px;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.3;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="heart">💖</div>
+<div class="heart">💕</div>
+<div class="heart">🌸</div>
+<div class="heart">✨</div>
+
+<div class="card">
+
+<div class="success">
+✓
+</div>
+
+<h1>Welcome to Blossom!</h1>
+
+<p>
+Your account has been created successfully 💕<br>
+Get ready to bloom, connect and enjoy your beautiful journey.
+</p>
+
+<button class="btn">
+Start Exploring ✨
+</button>
+
+✨ Continue to Login
+
+
+<div class="sparkle">
+🌸 ✨ 💖 ✨ 🌸
+</div>
+
+</div>
+
+</body>
+</html>

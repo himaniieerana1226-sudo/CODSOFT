@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blossom</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd1dc,#ffe4ec,#fff0f5);
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 6s infinite ease-in-out;
+opacity:.6;
+}
+
+.heart:nth-child(1){
+left:10%;
+top:80%;
+animation-delay:0s;
+}
+
+.heart:nth-child(2){
+left:80%;
+top:90%;
+animation-delay:2s;
+}
+
+.heart:nth-child(3){
+left:70%;
+top:70%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:.4;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-500px);
+opacity:0;
+}
+}
+
+/* Main Card */
+
+.card{
+width:390px;
+padding:35px;
+text-align:center;
+
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(15px);
+
+border-radius:35px;
+
+box-shadow:
+0 10px 35px rgba(255,105,180,.25);
+
+border:1px solid rgba(255,255,255,.4);
+}
+
+/* Flower */
+
+.flower{
+position:relative;
+width:140px;
+height:140px;
+margin:auto;
+margin-bottom:20px;
+animation:bounce 3s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-10px);
+}
+}
+
+.petal{
+position:absolute;
+width:60px;
+height:60px;
+background:#ff9fc7;
+border-radius:50%;
+}
+
+.p1{
+top:0;
+left:40px;
+}
+
+.p2{
+left:0;
+top:40px;
+}
+
+.p3{
+right:0;
+top:40px;
+}
+
+.p4{
+bottom:0;
+left:40px;
+}
+
+.p5{
+top:40px;
+left:40px;
+background:#ffb6d5;
+}
+
+.center{
+position:absolute;
+width:45px;
+height:45px;
+background:#ffd166;
+border-radius:50%;
+top:48px;
+left:48px;
+}
+
+/* Text */
+
+.logo{
+font-size:38px;
+font-weight:700;
+color:#ff4f8b;
+}
+
+.tagline{
+margin-top:10px;
+color:#666;
+line-height:1.6;
+font-size:15px;
+}
+
+/* Button */
+
+.btn{
+margin-top:25px;
+width:100%;
+padding:15px;
+
+border:none;
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#ff77aa,
+#ff4f8b
+);
+
+color:white;
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.login{
+margin-top:18px;
+font-size:14px;
+color:#666;
+}
+
+.login a{
+text-decoration:none;
+color:#ff4f8b;
+font-weight:600;
+}
+
+</style>
+</head>
+<body>
+
+<div class="heart">💖</div>
+<div class="heart">💕</div>
+<div class="heart">💗</div>
+
+<div class="card">
+
+<div class="flower">
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+<div class="center"></div>
+</div>
+
+<h1 class="logo">🌸 Blossom</h1>
+
+<p class="tagline">
+Bloom into your digital journey.<br>
+Create, connect and shine beautifully every day.
+</p>
+
+</a> <a href="signup.html" class="dark-pink-btn">
+    💖🌸 Start Your Journey
+</a>
+
+
+
+<p class="login">
+Already have an account?
+<a href="#">Login</a>
+</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blossom Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd1dc,#ffe4ec,#fff0f5);
+}
+
+/* Floating Hearts */
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 7s infinite ease-in-out;
+opacity:.6;
+}
+
+.heart:nth-child(1){
+left:10%;
+top:85%;
+}
+
+.heart:nth-child(2){
+left:85%;
+top:90%;
+animation-delay:2s;
+}
+
+.heart:nth-child(3){
+left:70%;
+top:75%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:.5;
+}
+100%{
+transform:translateY(-500px);
+opacity:0;
+}
+}
+
+/* Card */
+
+.card{
+width:390px;
+padding:35px;
+
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(15px);
+
+border-radius:35px;
+
+box-shadow:
+0 10px 35px rgba(255,105,180,.25);
+
+border:1px solid rgba(255,255,255,.4);
+
+text-align:center;
+}
+
+/* Logo */
+
+.logo{
+font-size:38px;
+color:#ff4f8b;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.subtitle{
+color:#777;
+margin-bottom:25px;
+font-size:14px;
+}
+
+/* Inputs */
+
+.input-box{
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:14px;
+
+border:none;
+outline:none;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.8);
+
+font-size:15px;
+}
+
+/* Forgot Password */
+
+.forgot{
+text-align:right;
+margin-bottom:18px;
+}
+
+.forgot a{
+text-decoration:none;
+color:#ff4f8b;
+font-size:13px;
+}
+
+/* Button */
+
+.btn{
+width:100%;
+padding:14px;
+
+border:none;
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#ff77aa,
+#ff4f8b
+);
+
+color:white;
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* Footer */
+
+.signup{
+margin-top:18px;
+font-size:14px;
+color:#666;
+}
+
+.signup a{
+text-decoration:none;
+color:#ff4f8b;
+font-weight:600;
+}
+
+.welcome-icon{
+font-size:70px;
+margin-bottom:15px;
+animation:bounce 3s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-8px);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="heart">💖</div>
+<div class="heart">💕</div>
+<div class="heart">🌸</div>
+
+<div class="card">
+
+<div class="welcome-icon">👧🏻</div>
+
+<h1 class="logo">Blossom</h1>
+
+<p class="subtitle">
+Welcome Back 💕
+</p>
+
+<div class="input-box">
+<input type="email" placeholder="Email Address">
+</div>
+
+<div class="input-box">
+<input type="password" placeholder="Password">
+</div>
+
+<div class="forgot">
+<a href="#">Forgot Password?</a>
+</div>
+
+Already have an account?
+<a href="ss.html">Login 💕</a>
+</p><a href="success.html"><button class="btn">
+Login ✨
+</button>
+
+<p class="signup">
+Don't have an account?
+<a href="success.html">Create Account</a>
+</p>
+
+</div>
+
+</body>
+</html>
