@@ -4,7 +4,6 @@ A UI/UX design project for a 3-screen mobile app signup flow (Signup, Registrati
 
 About this project🚀🛸
 
-About This Project
 This project is a simple mobile app signup flow created to make the account creation process easy and user-friendly. The design includes a Signup page for new users, a Login page for existing users, and a Success page that appears after successful account creation.
 Users can register by entering their name, email, and password. After creating an account, they can log in and access the application. The interface is designed to be clean, simple, and easy to understand for all users.
 
