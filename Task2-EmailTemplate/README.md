@@ -46,7 +46,7 @@ The same email template was developed using HTML and CSS to demonstrate coding s
 
 🎨 Canva Design
 
-(Add your Canva screenshot here)
+Task2-EmailTemplate/design using HTML and CSS 1 .jpg
 
 💻 HTML & CSS Version
 
