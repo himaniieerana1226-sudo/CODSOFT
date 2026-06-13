@@ -17,6 +17,17 @@ CSS
 Purpose
 (The main goal of this project is to create a simple and attractive user authentication flow while improving frontend design and layout skills.)
 
+##  Screenshots of this Projects
+
+### Sign Page
+![Sign Page](sign.png)
+
+### Success Page
+![Success Page](success.png)
+
+### Welcome Page
+![Welcome Page](welcome.png)
+
 ## User Flow
 
 Welcome Page → Login Page → Success Page
