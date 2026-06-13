@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Blossom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fff5f7;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .email-wrapper {
+      max-width: 540px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #fff5f7 55%, #f9d0d8 100%);
+      padding: 28px 28px 0;
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+    }
+    .floral-corner {
+      position: absolute;
+      top: 0; left: 0;
+      width: 140px; height: 140px;
+      opacity: 0.92;
+    }
+    .hero-brand {
+      text-align: center;
+      padding-top: 8px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-brand .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: #1a1a1a;
+    }
+    .hero-brand .tagline {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #c06080;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .hero-body {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text { flex: 1; }
+    .welcome-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      color: #d4608a;
+    }
+    .welcome-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 32px;
+      color: #d4608a;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .welcome-title span { color: #1a1a1a; }
+    .welcome-divider {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 8px 0;
+    }
+    .welcome-divider span {
+      width: 6px; height: 6px;
+      background: #d4608a;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .welcome-divider hr {
+      flex: 1;
+      border: none;
+      border-top: 1.5px dashed #d4608a;
+    }
+    .welcome-msg {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+      margin-top: 6px;
+      max-width: 200px;
+    }
+    .hero-girl { width: 160px; flex-shrink: 0; }
+
+    /* INTRO CARD */
+    .intro-card {
+      background: #fce8ed;
+      margin: 0 16px;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .intro-icon { font-size: 40px; flex-shrink: 0; }
+    .intro-text { font-size: 12.5px; color: #444; line-height: 1.7; }
+    .intro-text strong { color: #d4608a; }
+
+    /* CTA */
+    .cta-wrap { text-align: center; padding: 22px 0 10px; }
+    .cta-btn {
+      display: inline-block;
+      background: #3d3830;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px 34px;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .cta-btn::after { content: ' →'; }
+
+    /* FEATURES */
+    .features-label {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 15px;
+      color: #d4608a;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 0 6px;
+    }
+    .features-row { display: flex; gap: 0; padding: 0 16px 20px; }
+    .feature-card {
+      flex: 1;
+      background: #fce8ed;
+      border-radius: 10px;
+      margin: 0 4px;
+      padding: 18px 10px 14px;
+      text-align: center;
+    }
+    .feature-card .icon-circle {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: #e890b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 10px;
+    }
+    .feature-card h4 { font-size: 11.5px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+    .feature-card p { font-size: 10px; color: #666; line-height: 1.5; }
+
+    /* PROMO */
+    .promo-banner {
+      background: linear-gradient(135deg, #ffe4ec, #ffd6e4 60%, #ffc8dc);
+      margin: 0 16px 20px;
+      border-radius: 12px;
+      padding: 20px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .promo-gift { font-size: 56px; flex-shrink: 0; }
+    .promo-text { flex: 1; }
+    .promo-text .label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #1a1a1a; text-transform: uppercase; }
+    .promo-text .discount { font-size: 28px; font-weight: 700; color: #d4608a; line-height: 1.1; }
+    .promo-text .sub { font-size: 11px; color: #333; font-weight: 600; }
+    .promo-code-box {
+      border: 2px dashed #d4608a;
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .promo-code-box .use { font-size: 10px; color: #555; font-weight: 600; }
+    .promo-code-box .code { font-size: 15px; font-weight: 700; color: #d4608a; letter-spacing: 1px; }
+
+    /* FOOTER SEQUENCE */
+    .footer { padding: 14px 20px 24px; }
+    .footer-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px;
+      color: #d4608a;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer-sequence {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .footer-seq-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #f5c0d0;
+    }
+    .footer-seq-item:last-child { border-bottom: none; }
+    .seq-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: #fce8ed;
+      border: 1.5px solid #e890b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #d4608a;
+      flex-shrink: 0;
+    }
+    .seq-icon { font-size: 20px; flex-shrink: 0; }
+    .seq-info { flex: 1; }
+    .seq-info .seq-label { font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+    .seq-info .seq-value { font-size: 12.5px; color: #333; font-weight: 600; margin-top: 1px; }
+    .footer-thankyou {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 11px;
+      color: #aaa;
+    }
+    .footer-thankyou span { color: #d4608a; font-weight: 700; }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <!-- SVG Floral corner -->
+    <svg class="floral-corner" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="30" cy="30" r="18" fill="#f9c8d4" opacity="0.7"/>
+      <circle cx="30" cy="30" r="10" fill="#f0a0b8"/>
+      <circle cx="30" cy="30" r="4" fill="#e87098"/>
+      <ellipse cx="12" cy="30" rx="9" ry="5" fill="#f9d4de" opacity="0.8"/>
+      <ellipse cx="48" cy="30" rx="9" ry="5" fill="#f9d4de" opacity="0.8"/>
+      <ellipse cx="30" cy="12" rx="5" ry="9" fill="#f9d4de" opacity="0.8"/>
+      <ellipse cx="30" cy="48" rx="5" ry="9" fill="#f9d4de" opacity="0.8"/>
+      <ellipse cx="17" cy="17" rx="7" ry="4" fill="#f5c0cc" opacity="0.7" transform="rotate(-45 17 17)"/>
+      <ellipse cx="43" cy="17" rx="7" ry="4" fill="#f5c0cc" opacity="0.7" transform="rotate(45 43 17)"/>
+      <circle cx="70" cy="18" r="12" fill="#f9d0dc" opacity="0.6"/>
+      <circle cx="70" cy="18" r="6" fill="#f0b0c0"/>
+      <ellipse cx="58" cy="18" rx="8" ry="4" fill="#f9d8e2" opacity="0.7"/>
+      <ellipse cx="82" cy="18" rx="8" ry="4" fill="#f9d8e2" opacity="0.7"/>
+      <ellipse cx="70" cy="6" rx="4" ry="8" fill="#f9d8e2" opacity="0.7"/>
+      <circle cx="18" cy="72" r="10" fill="#f9d0dc" opacity="0.6"/>
+      <circle cx="18" cy="72" r="5" fill="#f0b0c0"/>
+      <ellipse cx="8" cy="72" rx="7" ry="3.5" fill="#f9d8e2" opacity="0.7"/>
+      <ellipse cx="28" cy="72" rx="7" ry="3.5" fill="#f9d8e2" opacity="0.7"/>
+      <ellipse cx="18" cy="62" rx="3.5" ry="7" fill="#f9d8e2" opacity="0.7"/>
+      <ellipse cx="18" cy="82" rx="3.5" ry="7" fill="#f9d8e2" opacity="0.7"/>
+      <path d="M55 55 Q65 45 75 55 Q65 65 55 55Z" fill="#c8d8a0" opacity="0.8"/>
+      <path d="M60 60 Q70 50 80 60 Q70 70 60 60Z" fill="#b8cc90" opacity="0.7"/>
+      <path d="M20 50 Q28 42 36 50 Q28 58 20 50Z" fill="#c8d8a0" opacity="0.8"/>
+      <path d="M40 80 Q48 72 56 80 Q48 88 40 80Z" fill="#c8d8a0" opacity="0.75"/>
+      <circle cx="90" cy="50" r="7" fill="#fad4bc" opacity="0.7"/>
+      <circle cx="90" cy="50" r="3.5" fill="#f0b090"/>
+      <ellipse cx="83" cy="50" rx="5" ry="2.5" fill="#fad8c0" opacity="0.7"/>
+      <ellipse cx="97" cy="50" rx="5" ry="2.5" fill="#fad8c0" opacity="0.7"/>
+      <ellipse cx="90" cy="43" rx="2.5" ry="5" fill="#fad8c0" opacity="0.7"/>
+    </svg>
+
+    <div class="hero-brand">
+      <div class="logo">BLOSSOM</div>
+      <div class="tagline">Bloom, Inspire, Belong.</div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-text">
+        <div class="welcome-script">Welcome to</div>
+        <div class="welcome-title">BLOSSOM<span>!</span></div>
+        <div class="welcome-divider">
+          <hr><span></span><span></span><span></span>
+        </div>
+        <p class="welcome-msg">We're so happy to have you with us</p>
+      </div>
+
+      <!-- AESTHETIC LILY FLOWER SVG -->
+      <svg class="hero-girl" viewBox="0 0 160 210" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stem -->
+        <path d="M80 205 Q78 170 80 140 Q82 110 80 78" stroke="#6a9a50" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <!-- Side stem left -->
+        <path d="M80 160 Q60 148 45 132" stroke="#6a9a50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- Side stem right -->
+        <path d="M80 145 Q100 133 115 118" stroke="#6a9a50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Big leaf left -->
+        <path d="M80 160 Q55 148 38 128 Q50 124 62 132 Q70 140 80 160Z" fill="#7ab858" opacity="0.9"/>
+        <path d="M80 160 Q58 145 44 130" stroke="#5a8840" stroke-width="1" fill="none" opacity="0.5"/>
+        <!-- Big leaf right -->
+        <path d="M80 145 Q105 132 118 115 Q110 111 98 117 Q88 128 80 145Z" fill="#8ac868" opacity="0.85"/>
+        <path d="M80 145 Q104 130 116 116" stroke="#5a8840" stroke-width="1" fill="none" opacity="0.5"/>
+        <!-- Small leaf mid -->
+        <path d="M80 125 Q62 116 52 102 Q60 98 68 104 Q75 114 80 125Z" fill="#90cc70" opacity="0.8"/>
+
+        <!-- ===== LILY PETALS ===== -->
+        <!-- Back petals -->
+        <path d="M80 76 Q55 58 48 32 Q58 24 68 42 Q76 58 80 76Z" fill="#f0a8c0" opacity="0.85"/>
+        <path d="M80 76 Q56 56 50 32" stroke="#e07898" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M80 76 Q105 58 112 32 Q102 24 92 42 Q84 58 80 76Z" fill="#f0a8c0" opacity="0.85"/>
+        <path d="M80 76 Q104 56 110 32" stroke="#e07898" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M80 76 Q68 50 70 22 Q80 15 90 22 Q92 50 80 76Z" fill="#f5b8cc" opacity="0.8"/>
+
+        <!-- Front petals -->
+        <path d="M80 78 Q50 84 32 108 Q42 118 58 106 Q70 94 80 78Z" fill="#fcd0e0" opacity="0.95"/>
+        <path d="M80 78 Q52 86 34 109" stroke="#e890b0" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M80 78 Q110 84 128 108 Q118 118 102 106 Q90 94 80 78Z" fill="#fcd0e0" opacity="0.95"/>
+        <path d="M80 78 Q108 86 126 109" stroke="#e890b0" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M80 78 Q68 100 72 130 Q80 136 88 130 Q92 100 80 78Z" fill="#fac8dc" opacity="0.95"/>
+
+        <!-- Petal highlights -->
+        <path d="M80 76 Q68 62 66 44" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.45" stroke-linecap="round"/>
+        <path d="M80 76 Q92 62 94 44" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.45" stroke-linecap="round"/>
+        <path d="M80 78 Q62 88 50 104" stroke="#fff" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round"/>
+        <path d="M80 78 Q98 88 110 104" stroke="#fff" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round"/>
+
+        <!-- Stamens -->
+        <line x1="80" y1="76" x2="72" y2="54" stroke="#c8505a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="80" y1="76" x2="80" y2="50" stroke="#c8505a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="80" y1="76" x2="88" y2="54" stroke="#c8505a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="80" y1="76" x2="68" y2="58" stroke="#d06070" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="80" y1="76" x2="92" y2="58" stroke="#d06070" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Anthers -->
+        <ellipse cx="72" cy="52" rx="4" ry="2.2" fill="#e8a028" transform="rotate(-15 72 52)"/>
+        <ellipse cx="80" cy="48" rx="4" ry="2.2" fill="#e8a028"/>
+        <ellipse cx="88" cy="52" rx="4" ry="2.2" fill="#e8a028" transform="rotate(15 88 52)"/>
+        <ellipse cx="67" cy="57" rx="3" ry="1.8" fill="#d4901a" transform="rotate(-25 67 57)"/>
+        <ellipse cx="93" cy="57" rx="3" ry="1.8" fill="#d4901a" transform="rotate(25 93 57)"/>
+
+        <!-- Pistil center -->
+        <line x1="80" y1="76" x2="80" y2="46" stroke="#b84060" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="80" cy="44" r="4.5" fill="#e05878"/>
+        <circle cx="80" cy="44" r="2.2" fill="#f8b0c8"/>
+
+        <!-- Dew drops -->
+        <ellipse cx="58" cy="94" rx="3" ry="2" fill="#fff" opacity="0.55"/>
+        <ellipse cx="102" cy="94" rx="3" ry="2" fill="#fff" opacity="0.55"/>
+        <ellipse cx="70" cy="40" rx="2" ry="1.5" fill="#fff" opacity="0.5"/>
+        <ellipse cx="90" cy="38" rx="2" ry="1.5" fill="#fff" opacity="0.5"/>
+
+        <!-- Sparkle dots -->
+        <circle cx="28" cy="78" r="2.8" fill="#f9c8d4" opacity="0.75"/>
+        <circle cx="20" cy="60" r="1.8" fill="#fad4e0" opacity="0.6"/>
+        <circle cx="132" cy="72" r="2.8" fill="#f9c8d4" opacity="0.75"/>
+        <circle cx="140" cy="88" r="1.8" fill="#fad4e0" opacity="0.6"/>
+        <circle cx="32" cy="46" r="1.6" fill="#e890b0" opacity="0.55"/>
+        <circle cx="128" cy="50" r="1.6" fill="#e890b0" opacity="0.55"/>
+        <!-- Star sparkles -->
+        <path d="M18 90 L20 85 L22 90 L27 92 L22 94 L20 99 L18 94 L13 92Z" fill="#f9c8d4" opacity="0.6"/>
+        <path d="M138 55 L140 50 L142 55 L147 57 L142 59 L140 64 L138 59 L133 57Z" fill="#f9c8d4" opacity="0.55"/>
+      </svg>
+
+    </div>
+  </div>
+
+  <!-- INTRO CARD -->
+  <div class="intro-card">
+    <div class="intro-icon">✉️</div>
+    <div class="intro-text">
+      <em>Hi there!<br>
+      Thank you for joining <strong>Blossom</strong>.<br>
+      We're excited to have you in our growing community.
+      Get ready to explore handpicked collections,
+      exclusive offers, and experiences curated just for you.</em>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a href="#" class="cta-btn">Get Started</a>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features-label">What you can look forward to</div>
+  <div class="features-row">
+    <div class="feature-card">
+      <div class="icon-circle">👤</div>
+      <h4>Personalized for you</h4>
+      <p>Enjoy a personalized experience tailored to your preferences.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-circle">🎁</div>
+      <h4>Exclusive Rewards</h4>
+      <p>Get access to special rewards and offers only for members.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon-circle">🎧</div>
+      <h4>We're here for you</h4>
+      <p>Our support team is available 24/7 to assist you.</p>
+    </div>
+  </div>
+
+  <!-- PROMO -->
+  <div class="promo-banner">
+    <div class="promo-gift">🎀</div>
+    <div class="promo-text">
+      <div class="label">New Member Special</div>
+      <div class="discount">20% OFF</div>
+      <div class="sub">on your first purchase!</div>
+    </div>
+    <div class="promo-code-box">
+      <div class="use">Use code</div>
+      <div class="code">BLOOM20</div>
+    </div>
+  </div>
+
+  <!-- FOOTER SEQUENCE -->
+  <div class="footer">
+    <div class="footer-title">Let's stay connected</div>
+    <div class="footer-sequence">
+      <div class="footer-seq-item">
+        <div class="seq-num">1</div>
+        <div class="seq-icon">📧</div>
+        <div class="seq-info">
+          <div class="seq-label">Email us</div>
+          <div class="seq-value">support@blossom.com</div>
+        </div>
+      </div>
+      <div class="footer-seq-item">
+        <div class="seq-num">2</div>
+        <div class="seq-icon">📞</div>
+        <div class="seq-info">
+          <div class="seq-label">Call us</div>
+          <div class="seq-value">+1 234 567 890</div>
+        </div>
+      </div>
+      <div class="footer-seq-item">
+        <div class="seq-num">3</div>
+        <div class="seq-icon">💖</div>
+        <div class="seq-info">
+          <div class="seq-label">Stay with us</div>
+          <div class="seq-value">Thank you for being part of Blossom!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
