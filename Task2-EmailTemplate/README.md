@@ -20,6 +20,14 @@ A beautifully designed email template created using Canva with a modern layout, 
 
 The same email template was developed using HTML and CSS to demonstrate coding skills, responsive design techniques, and structured web development.
 
+Preview of Project
+
+Design using [HTML and CSS]
+
+![HTML Design](design[HTML,CSS]1.jpg)
+
+![HTML Design 2](Design[HTML,CSS]2.jpg) 
+
 ---
 
 🚀 ##Key Features
