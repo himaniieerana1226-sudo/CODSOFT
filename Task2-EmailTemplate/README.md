@@ -1,28 +1,28 @@
-##📧 Email Template Design
+📧 ##Email Template Design
 
-##✨ CodSoft Internship - Task 2
+✨ ##CodSoft Internship - Task 2
 
 Welcome to my Email Template Design Project! This project was created as part of the CodSoft Internship Program to showcase both my creative designing skills and front-end development skills.
 
 ---
 
-##🎯 Project Description
+🎯 ##Project Description
 
 The aim of this project was to design a professional and visually appealing email template that can be used for marketing campaigns, newsletters, promotions, announcements, and business communication.
 
 To make this project more effective, I created it in two different versions:
 
-##🎨 Canva Design Version
+🎨 ##Canva Design Version
 
 A beautifully designed email template created using Canva with a modern layout, attractive typography, and visually engaging elements.
 
-##💻 HTML & CSS Version
+💻 ##HTML & CSS Version
 
 The same email template was developed using HTML and CSS to demonstrate coding skills, responsive design techniques, and structured web development.
 
 ---
 
-##🚀 Key Features
+🚀 ##Key Features
 
 ✅ Clean & Modern Design
 ✅ Professional Email Layout
@@ -34,7 +34,7 @@ The same email template was developed using HTML and CSS to demonstrate coding s
 
 ---
 
-##🛠️ Technologies Used
+🛠️ ##Technologies Used
 
 - 🎨 Canva
 - 🌐 HTML5
@@ -46,15 +46,14 @@ The same email template was developed using HTML and CSS to demonstrate coding s
 
 🎨 Canva Design
 
-Task2-EmailTemplate/design using HTML and CSS 1 .jpg
 
 💻 HTML & CSS Version
 
-(Add your coding version screenshot here)
+(design%20using%20HTML%20and%20CSS%201.jpg)
 
 ---
 
-##📚 Learning Outcomes
+📚 ##Learning Outcomes
 
 Through this project, I improved my skills in:
 
@@ -67,7 +66,7 @@ Through this project, I improved my skills in:
 
 ---
 
-##👩‍💻 Author
+👩‍💻 ##Author
 
 Himani Rana
 
