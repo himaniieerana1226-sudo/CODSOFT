@@ -1,90 +1,60 @@
-📧 Task 2 - Email Template Design
+📧 Email Template Design
+🌟 CodSoft Internship - Task 2
 
-✨ CodSoft Internship Project
+Welcome to my Email Template Design Project, created as part of the CodSoft Internship Program. This project demonstrates both my creative design skills and front-end development skills through two different implementations of the same email template.
 
----
-
-🌟 Project Overview
-
-This project was created as part of the CodSoft Internship Program. The goal was to design a visually appealing and professional Email Template that can be used for promotional campaigns, newsletters, announcements, and business communication.
-
-To enhance both my design and development skills, I completed this project in two different versions:
-
-🎨 Canva Design Version
-💻 HTML & CSS Development Version
-
----
-
+🎯 Project Objective-
+The objective of this task was to design a professional and visually appealing email
+template that can be used for:
+📢 Marketing Campaigns
+📰 Newsletters
+🎉 Promotional Announcements
+💼 Business Communication
 🎨 Canva Design Version
 
-✔️ Designed using Canva
-✔️ Modern and clean layout
-✔️ Attractive typography and color scheme
-✔️ User-friendly structure
-✔️ Professional visual appearance
+This version was designed using Canva to create a modern and attractive email layout.
 
----
-
+Features:
+✨ Clean & Modern Design
+🎨 Attractive Color Combination
+📝 Professional Typography
+📱 User-Friendly Layout
+💡 Creative Visual Elements
 💻 HTML & CSS Version
 
-✔️ Developed using HTML5 & CSS3
-✔️ Responsive design structure
-✔️ Clean and organized code
-✔️ Professional email layout implementation
-✔️ Web-friendly design experience
+The same design was also developed using HTML5 and CSS3 to demonstrate coding and web design skills.
 
----
-
-🚀 Features
-
-✨ Modern Email Template Design
-✨ Responsive Layout
-✨ Clean User Interface
-✨ Professional Appearance
-✨ Well-Structured Content Sections
-✨ Attractive Visual Design
-✨ Easy Readability
-
----
-
-🛠️ Tools & Technologies Used
-
+Features:
+🌐 Built with HTML5 & CSS3
+📱 Responsive Layout
+🎯 Structured Design
+🚀 Clean & Readable Code
+💼 Professional Appearance
+🛠️ Technologies Used
 🎨 Canva
 🌐 HTML5
 🎯 CSS3
-📱 Responsive Design Principles
-
----
 
 📸 Project Preview
-
 🎨 Canva Design
-
-"Canva Design" (canva-design.jpg)
-
+�
 💻 HTML & CSS Version
+�
 
-"HTML CSS Version" (coding-version.jpg)
 
----
-
-📚 What I Learned
-
-🌟 Email Template Design
-🌟 UI/UX Design Principles
-🌟 HTML Structure Building
-🌟 CSS Styling Techniques
-🌟 Responsive Design Implementation
-🌟 Creative Visual Presentation
-
----
+📚 Skills Gained
+🎨 UI/UX Design
+📧 Email Template Design
+🌐 HTML Development
+🎯 CSS Styling
+📱 Responsive Design
+💡 Creative Problem Solving
 
 👩‍💻 Author
-
 Himani Rana
 
-💼 Internship Project @ CodSoft
+💼 Internship Program
 
----
+CodSoft Internship
 
-⭐ Thank you for visiting this project repository! Your feedback and suggestions are always welcome.
+⭐ Thank you for visiting this repository. Feel free to explore the project and share your feedback!
