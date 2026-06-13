@@ -25,6 +25,9 @@ Purpose
 ### Welcome Pagewelcome
 ![Welcome Page](IMG-20260607-WA0014.jpg)
 
+### Success Page
+![Success Page](IMG-20260607-WA0013.jpg)
+
 
 
 ## User Flow
