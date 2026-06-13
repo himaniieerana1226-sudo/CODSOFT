@@ -39,20 +39,7 @@ The same email template was developed using HTML and CSS to demonstrate coding s
 - 🎨 Canva
 - 🌐 HTML5
 - 🎯 CSS3
-
 ---
-
-📸 Project Preview
-
-🎨 Canva Design
-
-
-💻 HTML & CSS Version
-
-(design%20using%20HTML%20and%20CSS%201.jpg)
-
----
-
 📚 ##Learning Outcomes
 
 Through this project, I improved my skills in:
