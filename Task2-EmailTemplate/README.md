@@ -29,7 +29,7 @@ The same email template was developed using HTML and CSS to demonstrate coding s
 ![HTML Design 2](Design[HTML,CSS]2.jpg) 
  
  🚀Design using [Canva]
- ![Canva Design](canva.jpg)
+ ![Design](Design-Canva.jpg)
 
 ---
 
