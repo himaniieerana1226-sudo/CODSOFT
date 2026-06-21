@@ -27,12 +27,9 @@ The website is designed to provide customers with an interactive menu browsing e
 - JavaScript
 - Responsive Web Design
 ## 📸 Screenshots
-Homepage
-�
-Starters Section
-�
-Drinks & Footer Section
-�
+
+## Live demo of this Project🚀
+https://unrivaled-speculoos-417336.netlify.app/
 
 ## 🍽️ Menu Highlights
 
