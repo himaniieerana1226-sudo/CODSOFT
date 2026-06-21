@@ -31,7 +31,7 @@ The website is designed to provide customers with an interactive menu browsing e
 ## 📸 Screenshots
 
 ### Homepage
-![Homepage](ss1.png)
+![Homepage](ss1.jpg)
 
 ## Live demo of this Project🚀
 https://unrivaled-speculoos-417336.netlify.app/
