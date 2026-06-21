@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blossom — A Floral Dining Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blush:     #F9C6D0;
+    --deep-rose: #C2185B;
+    --petal:     #FDE8EE;
+    --soft-pink: #F48FB1;
+    --mauve:     #AD1457;
+    --cream:     #FFF5F7;
+    --ink:       #3D1A24;
+    --muted:     #9E6070;
+    --card-bg:   #FFFFFF;
+    --nav-bg:    #FBD0DB;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: "DM Sans", sans-serif; font-weight: 300; min-height: 100vh; }
+
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, #F06292 0%, #E91E8C 40%, #AD1457 100%);
+    overflow: hidden; padding: 90px 24px 72px; text-align: center;
+  }
+  .hero-petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .petal-svg { position: absolute; opacity: 0.18; }
+  .p1 { top: -20px; left: -10px; transform: rotate(-30deg); }
+  .p2 { top: 10px; right: -20px; transform: rotate(50deg) scaleX(-1); }
+  .p3 { bottom: -10px; left: 60px; transform: rotate(20deg); }
+  .p4 { bottom: -20px; right: 30px; transform: rotate(-45deg); }
+  .p5 { top: 40%; left: 5%; transform: rotate(10deg); opacity: 0.1; }
+  .p6 { top: 20%; right: 8%; transform: rotate(-20deg); opacity: 0.12; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,245,247,0.75); margin-bottom: 20px; }
+  .hero-title { font-family: "Playfair Display", serif; font-size: clamp(60px, 12vw, 110px); color: #fff; line-height: 1; letter-spacing: -.02em; text-shadow: 0 4px 24px rgba(173,20,87,0.3); }
+  .hero-title em { font-style: italic; color: #FCE4EC; }
+  .hero-tagline { margin-top: 18px; font-size: 15px; color: rgba(255,245,247,0.8); letter-spacing: .05em; }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 30px auto 0; }
+  .orn-line { width: 55px; height: 1px; background: rgba(255,255,255,0.4); }
+  .orn-petal { font-size: 16px; opacity: 0.85; }
+
+  .nav-wrap { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); border-bottom: 1px solid rgba(194,24,91,0.18); box-shadow: 0 2px 12px rgba(194,24,91,0.08); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 12px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn { background: none; border: none; cursor: pointer; padding: 15px 20px; font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: rgba(61,26,36,0.45); white-space: nowrap; position: relative; transition: color .2s; }
+  .nav-btn::after { content: ""; position: absolute; bottom: 0; left: 16px; right: 16px; height: 2px; background: var(--deep-rose); transform: scaleX(0); transition: transform .25s; border-radius: 1px; }
+  .nav-btn:hover { color: var(--deep-rose); }
+  .nav-btn.active { color: var(--deep-rose); font-weight: 500; }
+  .nav-btn.active::after { transform: scaleX(1); }
+
+  .menu-body { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+  .menu-section { padding-top: 64px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--soft-pink); white-space: nowrap; }
+  .section-rule { flex: 1; height: 1px; background: linear-gradient(to right, rgba(194,24,91,0.25), transparent); }
+  .section-title { font-family: "Playfair Display", serif; font-size: clamp(30px, 5vw, 46px); color: var(--ink); font-weight: 600; margin-bottom: 5px; line-height: 1.1; }
+  .section-desc { font-size: 13px; color: var(--muted); margin-bottom: 34px; letter-spacing: .01em; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
+  .card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid rgba(194,24,91,0.1); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(194,24,91,0.06); }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(194,24,91,0.12); }
+  .card-img-placeholder { width: 100%; height: 175px; display: flex; align-items: center; justify-content: center; font-size: 50px; user-select: none; flex-shrink: 0; }
+  .card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card-name { font-family: "Playfair Display", serif; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .card-price { font-family: "Playfair Display", serif; font-size: 17px; font-weight: 400; font-style: italic; color: var(--deep-rose); white-space: nowrap; flex-shrink: 0; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag { font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+  .tag-veg   { background: rgba(240,98,146,0.1);  color: #C2185B; }
+  .tag-new   { background: rgba(173,20,87,0.09);  color: #880E4F; }
+  .tag-chef  { background: rgba(244,143,177,0.2); color: #AD1457; }
+  .tag-spicy { background: rgba(180,60,60,0.08);  color: #b43c3c; }
+  .tag-gf    { background: rgba(158,96,112,0.08); color: #9E6070; }
+
+  .card-featured { grid-column: 1 / -1; flex-direction: row; border-radius: 20px; }
+  .card-featured .card-img-placeholder { width: 270px; min-width: 270px; height: auto; font-size: 70px; flex-shrink: 0; }
+  .card-featured .card-body { padding: 28px 30px; }
+  .card-featured .card-name { font-size: 24px; }
+
+  .footer { background: linear-gradient(135deg, #E91E8C, #AD1457); color: rgba(255,245,247,0.65); text-align: center; padding: 44px 24px; font-size: 13px; letter-spacing: .04em; }
+  .footer strong { display: block; font-family: "Playfair Display", serif; font-size: 26px; color: #fff; font-style: italic; margin-bottom: 10px; font-weight: 400; }
+  .footer-flower { font-size: 22px; margin-bottom: 8px; display: block; }
+
+  @media (max-width: 600px) {
+    .card-featured { flex-direction: column; }
+    .card-featured .card-img-placeholder { width: 100%; height: 175px; font-size: 50px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } } .
+</button>
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-petals">
+    <svg class="petal-svg p1" width="240" height="240" viewBox="0 0 240 240" fill="none">
+      <ellipse cx="80" cy="120" rx="70" ry="35" fill="#FCE4EC" transform="rotate(-30 80 120)"/>
+      <ellipse cx="160" cy="120" rx="70" ry="35" fill="#F8BBD0" transform="rotate(30 160 120)"/>
+      <ellipse cx="120" cy="60" rx="35" ry="70" fill="#FCE4EC" transform="rotate(10 120 60)"/>
+      <ellipse cx="120" cy="180" rx="35" ry="70" fill="#F8BBD0" transform="rotate(-10 120 180)"/>
+      <circle cx="120" cy="120" r="22" fill="#FFD6E7"/>
+    </svg>
+    <svg class="petal-svg p2" width="200" height="200" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="65" cy="100" rx="58" ry="28" fill="#F8BBD0" transform="rotate(-45 65 100)"/>
+      <ellipse cx="135" cy="100" rx="58" ry="28" fill="#FCE4EC" transform="rotate(45 135 100)"/>
+      <ellipse cx="100" cy="65" rx="28" ry="58" fill="#F8BBD0" transform="rotate(15 100 65)"/>
+      <ellipse cx="100" cy="135" rx="28" ry="58" fill="#FCE4EC" transform="rotate(-15 100 135)"/>
+      <circle cx="100" cy="100" r="18" fill="#FFD6E7"/>
+    </svg>
+    <svg class="petal-svg p3" width="180" height="180" viewBox="0 0 180 180" fill="none">
+      <ellipse cx="60" cy="90" rx="52" ry="24" fill="#FCE4EC" transform="rotate(-20 60 90)"/>
+      <ellipse cx="120" cy="90" rx="52" ry="24" fill="#F8BBD0" transform="rotate(20 120 90)"/>
+      <ellipse cx="90" cy="60" rx="24" ry="52" fill="#FCE4EC"/>
+      <ellipse cx="90" cy="120" rx="24" ry="52" fill="#F8BBD0"/>
+      <circle cx="90" cy="90" r="16" fill="#FFD6E7"/>
+    </svg>
+    <svg class="petal-svg p4" width="160" height="160" viewBox="0 0 160 160" fill="none">
+      <ellipse cx="50" cy="80" rx="45" ry="22" fill="#F8BBD0" transform="rotate(-35 50 80)"/>
+      <ellipse cx="110" cy="80" rx="45" ry="22" fill="#FCE4EC" transform="rotate(35 110 80)"/>
+      <ellipse cx="80" cy="50" rx="22" ry="45" fill="#F8BBD0"/>
+      <ellipse cx="80" cy="110" rx="22" ry="45" fill="#FCE4EC"/>
+      <circle cx="80" cy="80" r="14" fill="#FFD6E7"/>
+    </svg>
+    <svg class="petal-svg p5" width="120" height="120" viewBox="0 0 120 120" fill="none">
+      <ellipse cx="40" cy="60" rx="34" ry="16" fill="#FCE4EC" transform="rotate(-25 40 60)"/>
+      <ellipse cx="80" cy="60" rx="34" ry="16" fill="#F8BBD0" transform="rotate(25 80 60)"/>
+      <ellipse cx="60" cy="40" rx="16" ry="34" fill="#FCE4EC"/>
+      <ellipse cx="60" cy="80" rx="16" ry="34" fill="#F8BBD0"/>
+      <circle cx="60" cy="60" r="11" fill="#FFD6E7"/>
+    </svg>
+    <svg class="petal-svg p6" width="100" height="100" viewBox="0 0 100 100" fill="none">
+      <ellipse cx="30" cy="50" rx="26" ry="12" fill="#FCE4EC" transform="rotate(-40 30 50)"/>
+      <ellipse cx="70" cy="50" rx="26" ry="12" fill="#F8BBD0" transform="rotate(40 70 50)"/>
+      <ellipse cx="50" cy="30" rx="12" ry="26" fill="#FCE4EC"/>
+      <ellipse cx="50" cy="70" rx="12" ry="26" fill="#F8BBD0"/>
+      <circle cx="50" cy="50" r="9" fill="#FFD6E7"/>
+    </svg>
+  </div>
+  <p class="hero-eyebrow">Est. 2026 &middot; Floral Dining</p>
+  <h1 class="hero-title">Blos<em>som</em></h1>
+  <p class="hero-tagline">Where every dish blooms with flavour &mdash; delicate, joyful, unforgettable</p>
+  <div class="ornament">
+    <span class="orn-line"></span>
+    <span class="orn-petal">&#127800;</span>
+    <span class="orn-line"></span>
+  </div>
+</header>
+
+<nav class="nav-wrap" aria-label="Menu categories">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="goTo(\'starters\')">&#127803; Starters</button>
+    <button class="nav-btn" onclick="goTo(\'soups\')">&#129380; Soups</button>
+    <button class="nav-btn" onclick="goTo(\'mains\')">&#127829; Mains</button>
+    <button class="nav-btn" onclick="goTo(\'sides\')">&#127807; Sides</button>
+    <button class="nav-btn" onclick="goTo(\'desserts\')">&#127856; Desserts</button>
+    <button class="nav-btn" onclick="goTo(\'drinks\')">&#127864; Drinks</button>
+  </div>
+</nav>
+
+<main class="menu-body">
+
+  <section class="menu-section" id="starters">
+    <div class="section-header"><span class="section-label">To Begin</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Starters</h2>
+    <p class="section-desc">Light bites to open the meal with elegance.</p>
+    <div class="cards-grid">
+      <div class="card card-featured">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">&#127825;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Rose Petal Salad</span><span class="card-price">$18</span></div>
+          <p class="card-desc">Edible rose petals, heirloom tomatoes, burrata, candied walnuts, and a hibiscus vinaigrette drizzle. Our most photographed starter &mdash; and for good reason.</p>
+          <div class="card-tags"><span class="tag tag-chef">Chef\'s Pick</span><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fde8ee,#f9c6d0);">&#127815;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Strawberry Bruschetta</span><span class="card-price">$14</span></div>
+          <p class="card-desc">Fresh strawberries, whipped ricotta, balsamic glaze, and crushed pistachios on grilled sourdough.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-new">Seasonal</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#fde8ee);">&#129408;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Saffron Prawns</span><span class="card-price">$22</span></div>
+          <p class="card-desc">Wild prawns in saffron butter, pink peppercorn, lemon zest. Served with brioche toast.</p>
+          <div class="card-tags"><span class="tag tag-spicy">Mildly Spiced</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#f48fb1);">&#129472;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Blossom Burrata</span><span class="card-price">$16</span></div>
+          <p class="card-desc">Creamy burrata, grilled peach, rose water honey, toasted almonds, and micro herbs.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="soups">
+    <div class="section-header"><span class="section-label">Warm &amp; Comforting</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Soups</h2>
+    <p class="section-desc">Crafted fresh each morning &mdash; limited portions daily.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fde8ee,#f9c6d0);">&#127858;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Pink Tomato Bisque</span><span class="card-price">$13</span></div>
+          <p class="card-desc">Heirloom pink tomatoes, roasted garlic, coconut cream, and fresh basil oil. Delicate and velvety.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#dcedc8);">&#127807;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Floral Garden Broth</span><span class="card-price">$12</span></div>
+          <p class="card-desc">A clear broth with chamomile, seasonal greens, lemon verbena, and hand-rolled herb dumplings.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-new">Today\'s Special</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#ffe0b2);">&#127831;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Rose Chicken Soup</span><span class="card-price">$14</span></div>
+          <p class="card-desc">Free-range chicken, rose water essence, saffron threads, vermicelli noodles, and cardamom.</p>
+          <div class="card-tags"><span class="tag tag-gf">GF Option</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="mains">
+    <div class="section-header"><span class="section-label">The Heart of the Meal</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Mains</h2>
+    <p class="section-desc">Every main course is a bloom on your plate.</p>
+    <div class="cards-grid">
+      <div class="card card-featured">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">&#127829;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Hibiscus Glazed Lamb Rack</span><span class="card-price">$48</span></div>
+          <p class="card-desc">Tender lamb rack in a hibiscus and pomegranate glaze, served with whipped sweet potato, crispy shallots, and a reduction of dried rose petals and red wine jus. Our most celebrated main &mdash; a floral masterpiece.</p>
+          <div class="card-tags"><span class="tag tag-chef">Chef\'s Signature</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fde8ee,#b2ebf2);">&#128031;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Elderflower Sea Bass</span><span class="card-price">$36</span></div>
+          <p class="card-desc">Pan-seared sea bass, elderflower butter sauce, cucumber ribbons, capers, and dill oil.</p>
+          <div class="card-tags"><span class="tag tag-chef">Chef\'s Pick</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#a5d6a7);">&#127807;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Petal Mushroom Risotto</span><span class="card-price">$28</span></div>
+          <p class="card-desc">Arborio rice, truffle oil, porcini mushrooms, rose petal garnish, and aged Parmigiano.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#ffe0b2);">&#127831;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Rosewater Roast Chicken</span><span class="card-price">$32</span></div>
+          <p class="card-desc">Free-range half chicken brined in rose water and herbs, roasted golden with lavender honey drizzle.</p>
+          <div class="card-tags"><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#ce93d8);">&#127800;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Floral Stuffed Peppers</span><span class="card-price">$26</span></div>
+          <p class="card-desc">Sweet peppers filled with saffron quinoa, sun-dried tomatoes, feta, pomegranate, and edible flowers.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span><span class="tag tag-new">New</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="sides">
+    <div class="section-header"><span class="section-label">Alongside</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Sides</h2>
+    <p class="section-desc">All sides $8 &mdash; made to complement every main.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#fff9c4);">&#129364;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Pink Salt Baby Potatoes</span><span class="card-price">$8</span></div>
+          <p class="card-desc">Roasted baby potatoes, Himalayan pink salt, herb butter, and chive cream.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#a5d6a7);">&#129382;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Blossom Greens</span><span class="card-price">$8</span></div>
+          <p class="card-desc">Tenderstem broccoli and sugar snaps, sesame oil, toasted seeds, and rose vinegar.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fde8ee,#dcedc8);">&#127807;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Flower Petal Salad</span><span class="card-price">$8</span></div>
+          <p class="card-desc">Mixed leaves, edible pansies, nasturtium, shaved fennel, and a light citrus dressing.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="desserts">
+    <div class="section-header"><span class="section-label">Sweet Endings</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Desserts</h2>
+    <p class="section-desc">Our pastry team bakes each creation with love, daily.</p>
+    <div class="cards-grid">
+      <div class="card card-featured">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">&#127856;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Blossom Strawberry Layer Cake</span><span class="card-price">$16</span></div>
+          <p class="card-desc">Three layers of vanilla sponge, fresh strawberry compote, rose-infused mascarpone cream, crowned with crystallised rose petals and edible gold dust. The dessert that defines us &mdash; ordered at nearly every table.</p>
+          <div class="card-tags"><span class="tag tag-chef">Signature</span><span class="tag tag-veg">Vegetarian</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#fce4ec);">&#127822;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Rose Panna Cotta</span><span class="card-price">$13</span></div>
+          <p class="card-desc">Silken panna cotta with rose water, raspberry coulis, and fresh lychee garnish.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-gf">GF</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#ce93d8);">&#127847;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Hibiscus Sorbet</span><span class="card-price">$10</span></div>
+          <p class="card-desc">House-made hibiscus sorbet, pomegranate pearls, candied violet, and a spritz of lychee syrup.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span><span class="tag tag-new">Light Option</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="drinks">
+    <div class="section-header"><span class="section-label">Sip in Style</span><span class="section-rule"></span></div>
+    <h2 class="section-title">Drinks</h2>
+    <p class="section-desc">Floral-inspired cocktails, mocktails, and fine wines.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">&#127865;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Blossom Spritz</span><span class="card-price">$14</span></div>
+          <p class="card-desc">Elderflower liqueur, hibiscus syrup, Prosecco, and edible rose petal ice. Our signature drink.</p>
+          <div class="card-tags"><span class="tag tag-chef">Signature</span><span class="tag tag-veg">Vegan</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#e1bee7);">&#127870;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Ros&eacute; Champagne</span><span class="card-price">$18 / glass</span></div>
+          <p class="card-desc">House Ros&eacute; Champagne &mdash; floral notes of peach, cream, and wild strawberry. Pairs with everything.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span><span class="tag tag-new">New</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#b2dfdb);">&#127800;</div>
+        <div class="card-body">
+          <div class="card-top"><span class="card-name">Pink Rose Mocktail</span><span class="card-price">$9</span></div>
+          <p class="card-desc">Rose water, raspberry, lychee juice, sparkling water, and dried flower ice cubes. Zero-proof, all joy.</p>
+          <div class="card-tags"><span class="tag tag-veg">Vegan</span><span class="tag tag-gf">GF</span><span class="tag tag-new">Non-Alcoholic</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span class="footer-flower">&#127800;</span>
+  <strong>Blossom</strong>
+  <p>Open Tuesday &ndash; Sunday &middot; Lunch 12&ndash;3pm &middot; Dinner 6&ndash;10pm</p>
+  <p style="margin-top:8px;">Please inform your server of any allergies. GF = gluten-free available on request.</p>
+</footer>
+
+<script>
+  function goTo(id) { document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" }); }
+  const sections = ["starters","soups","mains","sides","desserts","drinks"];
+  const buttons  = document.querySelectorAll(".nav-btn");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = sections.indexOf(e.target.id);
+        buttons.forEach((b, i) => b.classList.toggle("active", i === idx));
+      }
+    });
+  }, { rootMargin: "-30% 0px -60% 0px" });
+  sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+</script>
+</body>
+</html>
