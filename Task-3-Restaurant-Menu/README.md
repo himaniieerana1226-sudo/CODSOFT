@@ -26,7 +26,6 @@ The website is designed to provide customers with an interactive menu browsing e
 - CSS3
 - JavaScript
 - Responsive Web Design
-## 📸 Screenshots
 
 ## 📸 Screenshots
 
@@ -58,9 +57,10 @@ Elegant Floral-Inspired Dishes
 Pink Rose Mocktail, 
 Refreshing Non-Alcoholic Drinks
 
-👩‍💻 Author
+
+## 👩‍💻 Author
 
 Himani Rana
 CodSoft Ui/Ux Internship
-- 
+ 
 
