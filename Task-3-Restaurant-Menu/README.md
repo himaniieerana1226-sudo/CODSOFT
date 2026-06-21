@@ -28,6 +28,11 @@ The website is designed to provide customers with an interactive menu browsing e
 - Responsive Web Design
 ## 📸 Screenshots
 
+## 📸 Screenshots
+
+### Homepage
+![Homepage](ss1.png)
+
 ## Live demo of this Project🚀
 https://unrivaled-speculoos-417336.netlify.app/
 
