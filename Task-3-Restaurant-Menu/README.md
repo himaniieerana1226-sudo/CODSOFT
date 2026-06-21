@@ -34,26 +34,26 @@ Starters Section
 Drinks & Footer Section
 �
 
-##🍽️ Menu Highlights
+## 🍽️ Menu Highlights
 
-🌻 Starters
+## 🌻 Starters
 
-Rose Petal Salad
+Rose Petal Salad, 
 Seasonal Floral Appetizers
 
 🥣 Soups
 
-Signature Floral Soups
+Signature Floral Soups., 
 Fresh Seasonal Recipes
 
 🍕 Main Course
 
-Premium Chef Specials
+Premium Chef Specials, 
 Elegant Floral-Inspired Dishes
 
 🥤 Beverages
 
-Pink Rose Mocktail
+Pink Rose Mocktail, 
 Refreshing Non-Alcoholic Drinks
 
 👩‍💻 Author
